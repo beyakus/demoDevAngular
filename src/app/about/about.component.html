@@ -1,0 +1,20 @@
+<section class="container">
+    <div class="row animated bounce">
+        <h5>Ejemplo llamada Http utilizando el patron takeUntil</h5>
+    </div>
+    <div class="row">
+    <mat-card *ngFor="let item of dataUser" class="right-car animated fadeIn">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title> {{ item?.first_name}}</mat-card-title>
+        <mat-card-subtitle>{{item?.last_name}}</mat-card-subtitle>
+        </mat-card-header>
+        <img [src]="item?.avatar">
+        <mat-card-actions>
+            <button mat-mini-fab color="primary" matTooltip="Es una demostración">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+    </div>
+</section>

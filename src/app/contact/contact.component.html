@@ -1,0 +1,36 @@
+<section class="container">
+    <div class="row animated fadeInLeft">
+        <h4>Uso de formulario reactivo</h4>
+    </div>
+    <div class="row">
+        <div class="col-6 animated fadeIn">
+            <ng-container [formGroup]="contactForm">
+                <mat-form-field class="example-full-width full-input">
+                    <input matInput placeholder="nombre" formControlName="name">
+                    <mat-error *ngIf="contactForm.get('name').touched && contactForm.get('name').invalid">
+                        {{ messages(contactForm.get('name')) }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width full-input">
+                    <input matInput placeholder="correo" formControlName="mail">
+                    <mat-error *ngIf="contactForm.get('mail').touched && contactForm.get('mail').invalid">
+                        {{ messages(contactForm.get('mail')) }}
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width full-input">
+                    <textarea matInput placeholder="Comentarios" formControlName="messages" rows="10"></textarea>
+                    <mat-error *ngIf="contactForm.get('messages').touched && contactForm.get('messages').invalid">
+                        {{ messages(contactForm.get('messages')) }}
+                    </mat-error>
+                </mat-form-field>
+                <button mat-flat-button color="accent" (click)="sendMessages()">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon">send</mat-icon>
+                    Enviar
+                </button>
+            </ng-container>
+        </div>
+        <div class="col-6 center">
+            <mat-icon class="size-icon animated flash" *ngIf="success">done_outline</mat-icon>
+        </div>
+    </div>
+</section>
